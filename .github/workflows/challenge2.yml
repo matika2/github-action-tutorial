@@ -1,0 +1,24 @@
+name: challenge2
+
+on: [push]
+
+env:
+  ARTIFACT_NAME: myartifact.sh
+
+jobs:
+  single:
+    name: Single-step job
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Check out code
+      uses: actions/checkout@v1
+
+    - name: Build ${{ env.ARTIFACT_NAME }} for ubuntu-latest
+      run: echo "success!" >> ${{ env.ARTIFACT_NAME }}
+
+    - name: Upload artifact for linux
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: linux
+        path: ./${{ env.ARTIFACT_NAME }}
