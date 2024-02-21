@@ -3,7 +3,10 @@ name: first
 on:
   push:
     branches:
-      - main2
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   job1:
