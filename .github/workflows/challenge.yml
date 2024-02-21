@@ -26,7 +26,6 @@ jobs:
     - name: Step two
       run: "Get-Date"
   job3:
-    needs: [job1, job2]
     name: Third job
     runs-on: macos-latest
     steps:
